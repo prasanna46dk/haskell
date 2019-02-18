@@ -62,6 +62,10 @@ main = do
   testInorder
   testPostorder
 
---foldTree :: (a -> b -> b) -> b -> BinaryTree a -> b
---foldTree f z Leaf = z
---foldTree f z (Node left a right) =  f a ()
+foldTree :: (a -> b -> b) -> b -> BinaryTree a -> b
+foldTree f z Leaf = z
+foldTree f z (Node left a right) = f a (foldTree f (foldTree f z left) right)
+
+fT :: (a -> b -> b) -> b -> BinaryTree a -> b
+fT f z Leaf = z
+fT f z (Node left a right) =fT f a (fT z left) right
