@@ -1,3 +1,4 @@
+-- | This is wrong logic. There is bug in caeser
 module VigenereCipher where
 
 import Data.Char
