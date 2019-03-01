@@ -27,7 +27,7 @@ encKeyList encKey (x:xs) =
 ordEncKeyList :: [EncKey] -> [[OrdEncKey]]
 ordEncKeyList [] = []
 ordEncKeyList [[]] = [[]]
-ordEncKeyList (x:xs) = map ord x : ordEncKeyList xs
+ordEncKeyList (x:xs) = (map ord x) : ordEncKeyList xs
 
 vigenereCipher :: [String] -> [[Int]] -> [String]
 vigenereCipher [] _ = []
