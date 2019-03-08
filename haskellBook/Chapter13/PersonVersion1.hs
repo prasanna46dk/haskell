@@ -1,7 +1,7 @@
 module Person where
 
 import System.IO
-import Data.Either
+import qualified Data.Either as E
 
 type Name = String
 type Age = Integer
@@ -44,6 +44,9 @@ gimmePerson = do
   putStr "Please enter your age: "
   age <- getLine
   let person = mkPerson name $ read age
-  case isRight person of
+  case E.isRight person of
     True -> putStrLn $ "Yay! Successfully got a person: " ++ (show $ fromRight person)
     False -> putStrLn (show $ fromLeft person)
+
+main :: IO ()
+main = gimmePerson
